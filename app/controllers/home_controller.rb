@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
   def index
-    console
+
     if params[:query].present?
       @geolocationIp = GeolocationIp.new(params[:query])
     end

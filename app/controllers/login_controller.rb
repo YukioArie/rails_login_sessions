@@ -1,7 +1,7 @@
 class LoginController < ApplicationController
   before_action :verify_user!
   def index
-    console
+
   end
   def verify_login
     user_data = Rails.cache.read(params[:email])

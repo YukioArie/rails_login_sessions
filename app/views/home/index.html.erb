@@ -1,19 +1,33 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<section class="container">
+<div class="mt-5 p-5 pb-3 bg-success text-white rounded">
+  <h1 class="mb-5">Olá <%= @username %></h1>
+  <div class="text-end"><%= button_to 'Sair', home_destroy_session_path,  method: :delete,class:"btn btn-light" %></div>
+</div>
 
-<h1><%= @username %></h1>
-<h1><%= @email %></h1>
-
-<%= form_with url: home_index_path, method: :get do |form| %>
-  <%= form.text_field :query, value: params[:query] %>
-  <%= form.submit "Search" %>
-<% end %>
-
+<div class="card mt-5">
+  <div class="card-header bg-success text-white">
+    Buscar informações por IP
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Digite seu IP para obter informações:</h5>
+    <%= form_with url: home_index_path, method: :get do |form| %>
+    <div class="input-group mb-3 mt-3" >
+      <%= form.text_field :query, value: params[:query],  class:"form-control",  placeholder:"127.25.135.25" %>
+        <%= form.submit "Search", class:"btn btn-outline-success" %>
+      </div>
+    <% end %>
+  </div>
 <% unless @geolocationIp.nil? %>
-  <h1><%= @geolocationIp.city %></h1>
-<h1><%= @geolocationIp.region %></h1>
-<h1><%= @geolocationIp.country %></h1>
+<ul class="list-group p-2">
+
+
+  <li class="list-group-item list-group-item-success">Cidade: <b><%= @geolocationIp.city %></b> </li>
+  <li class="list-group-item list-group-item-success">Região: <b><%= @geolocationIp.region %></b></li>
+  <li class="list-group-item list-group-item-success">País: <b><%= @geolocationIp.country %></b></li>
+
+</ul>
+
 <% end %>
+</div>
 
-
-<%= button_to 'Sair', home_destroy_session_path,  method: :delete,class:"btn btn-primary" %>
+</section>
