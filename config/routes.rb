@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'login/verify_login', to: 'login#verify_login'
 
   get 'register/index'
+  post 'register/validate_account', to: 'register#validate_account'
   get 'home/index' 
   delete 'home/destroy_session', to: 'home#destroy_session'
   

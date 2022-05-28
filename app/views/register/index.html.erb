@@ -1,2 +1,15 @@
 <h1>Register#index</h1>
 <p>Find me in app/views/register/index.html.erb</p>
+<% if notice %>
+<p><%= notice %></p>
+<% end %>
+
+<%= form_with url: register_validate_account_path, method: :post do |form| %>
+  <%= form.label :name, "Nome:" %>
+  <%= form.text_field :name %>
+  <%= form.label :email, "Email:" %>
+  <%= form.email_field :email %>
+  <%= form.label :password, "Password:" %>
+  <%= form.password_field :password %>
+  <%= form.submit "Search" %>
+<% end %>
