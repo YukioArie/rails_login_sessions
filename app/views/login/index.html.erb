@@ -1,2 +1,14 @@
 <h1>Login#index</h1>
 <p>Find me in app/views/login/index.html.erb</p>
+<% if notice %>
+<p><%= notice %></p>
+<% end %>
+
+
+<%= form_with url: login_verify_login_path, method: :post do |form| %>
+  <%= form.label :email, "Email:" %>
+  <%= form.email_field :email %>
+  <%= form.label :password, "Password:" %>
+  <%= form.password_field :password %>
+  <%= form.submit "Search" %>
+<% end %>
