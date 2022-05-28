@@ -4,4 +4,16 @@
 <h1><%= @username %></h1>
 <h1><%= @email %></h1>
 
+<%= form_with url: home_index_path, method: :get do |form| %>
+  <%= form.text_field :query, value: params[:query] %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<% unless @geolocationIp.nil? %>
+  <h1><%= @geolocationIp.city %></h1>
+<h1><%= @geolocationIp.region %></h1>
+<h1><%= @geolocationIp.country %></h1>
+<% end %>
+
+
 <%= button_to 'Sair', home_destroy_session_path,  method: :delete,class:"btn btn-primary" %>
