@@ -3,3 +3,5 @@
 
 <h1><%= @username %></h1>
 <h1><%= @email %></h1>
+
+<%= button_to 'Sair', home_destroy_session_path,  method: :delete,class:"btn btn-primary" %>

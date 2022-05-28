@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'register/index'
   get 'home/index' 
+  delete 'home/destroy_session', to: 'home#destroy_session'
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
