@@ -1,4 +1,5 @@
 class LoginController < ApplicationController
+  before_action :verify_user!
   def index
     console
   end
@@ -18,4 +19,10 @@ class LoginController < ApplicationController
       redirect_to login_index_path, notice: 'Usuário não encontrado'
     end
   end
+  def verify_user!
+    if cookies[:userId]
+      redirect_to home_index_path
+    end
+  end
+  
 end
